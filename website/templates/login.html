@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+<style>
+    body,
+    html {
+        background-color: #d9d9d9;
+        background-image: none;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="box">
+        <h1 style="font-family: sans-serif">Log in</h1>
+        <form action="#" method="POST">
+            <div class="form-input" style="margin-top: 0">
+                <img class="form-icon" src="../static/images/mail.png">
+                <input id="email" name="email" style="font-size: 24px; margin-left: 5px" type="email" placeholder="Email" />
+            </div>
+            <div class="form-input">
+                <img class="form-icon" src="../static/images/password.png">
+                <input id="password1" name="password1" style="font-size: 24px; margin-left: 5px" type="password"
+                    placeholder="Password" />
+            </div>
+            <button type="submit" class="submit-button">Log in</button>
+            <h3></h3>
+        </form>
+    </div>
+</main>
+{% endblock %}

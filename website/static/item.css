@@ -1,0 +1,40 @@
+body, html {
+    background-color: #d9d9d9;
+    background-image: none;
+}
+
+.item {
+    display: flex;
+    vertical-align: top;
+    width: 90%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.i-image {
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    margin-left: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.item-detail {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.cart {
+    background-color: red;
+    border: 0px solid transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer;
+}

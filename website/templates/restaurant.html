@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}{{ restaurant.name }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/restaurant.css">
+{% endblock %}
+{% block content %}
+<main style="justify-content: flex-start">
+    <div class="restaurant-banner">
+        <img src="../static/images/restaurant-banner.png" class="banner-image">
+        <p style="font-family: sans-serif; font-size: 40px; margin-top: 10px;">{{ restaurant.name }}</p>
+        <p style="font-family: sans-serif; font-size: 30px; margin-top: 10px;"><span><img src="../static/images/location-pin.png" style="height: 30px; width: 30px"></span>{{ restaurant.address }}</p>
+    </div>
+    <div style="width: 100%; height: 30px"></div>
+    <div class="item-list">
+        <div class="fixed-item"></div>
+        {% set count = namespace(value=1) %}
+        {% for item in items %}
+        <div class="item">
+            <div class="i-image">
+                <img src="../static/images/dish.png" style="width: 80px; height: 80px;">
+            </div>
+            <div class="i-info">
+                <div style="width: 0; height: 0; display: none;" id="item-id{{ count.value }}">{{ item.id }}</div>
+                <div class="i-info-element">
+                    <h3 id="item-name" style="margin-left: 10px; margin-top: 10px">{{ item.name }}</h3>
+                </div>
+                <div class="i-info-element">
+                    <h4 style="margin-left: 10px; margin-top: 10px">{{ item.price }}đ</h3>
+                </div>
+            </div>
+            <div class="view-detail">
+                <div class="i-button" onclick="window.location.href='{{ url_for('views.item', id = item.id) }}'">
+                    <h4 style="margin-top: 13px">View detail</h4>
+                </div>
+            </div>
+        </div>
+        {% set count.value = count.value + 1 %}
+        {% endfor %}
+    </div>
+</main>
+<img class="cart" src="../static/images/cart.png" {% if 'cart' in session %}onclick="window.location.href='{{ url_for('views.cart', pid = session['cart'])}}'"{% endif %}>
+{% endblock %}

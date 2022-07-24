@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}View cart{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/cart.css">
+{% endblock %}
+{% block content %}
+<main style="justify-content: flex-start;">
+    <div class="box" style="width: 70%;">
+        <div class="item-list" style="width: 100%; border-bottom: 1px solid black;">
+            <table style="font-family: sans-serif; font-size: 30px; width: 100%">
+                <thead style="text-align: center; border-bottom: 1px solid black;">
+                    <td>Name</td>
+                    <td>Single</td>
+                    <td>Quantity</td>
+                    <td>Price</td>
+                </thead>
+                <tbody style="text-align: center;">
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}đ</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.total }}đ</td>
+                    </tr>
+                    <!-- <h3>{{ item.name }} {{ item.price }} {{ item.quantity }} {{ item.total }}</h3> -->
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="final" style="width: 100%">
+            <p style="font-family: sans-serif; font-size: 40px; text-align: right; margin-right: 10px;">Total: {{ final[0].value }}đ</p>
+        </div>
+        <div class="payment-method">
+            <label for="p">Select payment method</label>
+            <select id="p">
+                {% for payment in payments %}
+                <option value="{{ payment.type }}">{{ payment.type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="checkout" onclick="window.alert('Under development!')">
+            <p style="font-family: sans-serif; font-size: 30px; text-align: center; margin-top: 5px;">Check out</p>
+        </div>
+        <div class="return" onclick="window.location.href='{{ url_for('views.restaurant', rid = final[0].rid)}}'">
+            <p style="font-family: sans-serif; font-size: 20px; text-align: center; margin-top: 10px">Choose another dish</p>
+        </div>
+    </div>
+</main>
+{% endblock %}

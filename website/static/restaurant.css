@@ -1,0 +1,90 @@
+body, html {
+    background-color: white;
+    background-image: none;
+}
+
+.restaurant-banner {
+    vertical-align: top;
+    width: 90%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.banner-image {
+    width: 99%; 
+    padding-top: 5px; 
+    padding-left: 5px; 
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px
+}
+
+.item-list {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.fixed-item {
+    height: 100px;
+    width: 0;
+    float: left
+}
+
+.item {
+    display: flex;
+    flex: 1 0 40%;
+    background-color: white;
+    height: 100px;
+    margin-right: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.i-image {
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.i-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.i-info-element {
+    flex-grow: 1;
+}
+
+.view-detail {
+    display: flex;
+    flex-direction: column;
+    width: 120px
+}
+
+.i-button {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.cart {
+    background-color: red;
+    border: 0px solid transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+body, html {
+    background-color: #d9d9d9;
+    background-image: none;
+}
+
+.return {
+    background-color: red;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.checkout {
+    background-color: red;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+table { border-collapse: collapse; }
+tr { border: none; }
+td { 
+  border-left: solid 1px black;
+}

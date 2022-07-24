@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <div class="header" style="background-color: white">
+        <div class="fixed">
+            <a href="/">
+                <img style="width: 100px; height: auto" src="../static/images/logo.jpg">
+            </a>
+        </div>
+        <div class="flex-item">
+            <a href="/">
+                <p style="font-size: 50px; font-family: hust-avant-garde; color: #ab0000">HUSTfood</p>
+            </a>
+        </div>
+        {% if not 'id' in session %}
+        <div class="flex-item login-signup">
+            <a href="signup">
+                <p id="login-signup">Login |
+                    Sign up</p>
+            </a>
+        </div>
+        {% endif %}
+        {% if 'id' in session %}
+        <div class="flex-item user-mini-avatar">
+            <a href="/user">
+                <img src="../static/images/default-user-avatar.jpg" id="user-mini-avatar">
+            </a>
+        </div>
+        <div class="flex-item logout">
+            <a href="logout">
+                <p id="logout">Log out</p>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger alert-dismissable fade show" role="alert" style="text-align: center; background-color: #f7c94b;">
+        <span style="font-size: 20px;">{{ message }}</span>
+        <button type="button" class="close" data-dismiss="alert" style="font-size: 20px;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

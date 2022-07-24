@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}HUSTfood - search result{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/search-result.css">
+{% endblock %}
+{% block content %}
+<h1 style="text-align: center">Search result for: {{ query }}</h1>
+<main>
+    <div class="restaurant-list">
+        <div class="fixed-item"></div>
+        {% for restaurant in restaurants %}
+        <div class="item" onclick="window.location.href='{{ url_for('views.restaurant', rid = restaurant.id) }}'">
+            <div class="r-image">
+                <img src="../static/images/restaurant-image-placeholder.png" style="height: 160px">
+            </div>
+            <div class="r-detail">
+                <p style="font-family: sans-serif; font-size: 40px; margin-top: 10px;">{{ restaurant.name }}</p>
+                <p style="font-family: sans-serif; font-size: 30px; margin-top: 10px;"><span><img src="../static/images/location-pin.png" style="height: 30px; width: 30px"></span>{{ restaurant.address }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

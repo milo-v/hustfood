@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ item[0].name }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/item.css">
+{% endblock %}
+{% block content %}
+<main style="justify-content: flex-start;">
+    <div class="item">
+        <div class="i-image">
+            <img src="../static/images/dish.png" style="width: 300px; height: 300px;">
+        </div>
+        <div class="item-detail">
+            <p style="font-family: sans-serif; font-size: 40px; margin-top: 10px;">{{ item[0].name }}</p>
+            <p style="font-family: sans-serif; font-size: 40px; margin-top: 10px;">Price: <strong>{{ item[0].price }}</strong>đ</p>
+            {% if "id" in session %}
+            <form action="#" method="POST">
+                <div style="margin-top: 0">
+                    <label for="amount" style="font-family: sans-serif; font-size: 30px;">Amount: </label>
+                    <input id="amount" name="amount" type="number" name="number" style="font-family: sans-serif; font-size: 30px;width: 100px">
+                    <button type="submit" style="font-family: sans-serif; font-size: 30px;">Add to cart</button>
+                </div>
+            </form>
+            {% else %}
+            <h2>You must log in to add this item to cart</h2>
+            {% endif %}
+        </div>
+    </div>
+</main>
+<img class="cart" src="../static/images/cart.png">
+{% endblock %}

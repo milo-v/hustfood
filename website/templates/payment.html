@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Edit payment information{% endblock %}
+{% block head %}
+<style>
+    body,
+    html {
+        background-color: #d9d9d9;
+        background-image: none;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="box" style="height: 50%; justify-content: flex-start">
+        {% if payments %}
+        {% for payment in payments %}
+        <h3 style="margin-bottom: 0">{{ payment.method }}</h3>
+        {% endfor %}
+        {% else %}
+        <h3>No payment methods added</h3>
+        {% endif %}
+        <form action="#" method="POST" style="margin-top: 10px">
+            <label for="payment-method">Add a payment method: </label>
+            <select name="payment-method" id="payment-method">
+                {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</main>
+{% endblock %}
